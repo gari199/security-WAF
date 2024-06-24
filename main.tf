@@ -1,4 +1,6 @@
-provider "aws" {}
+provider "aws" {
+  region = var.region
+}
 
 #Creation of ALB
 resource "aws_lb" "waf-alb" {

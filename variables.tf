@@ -4,6 +4,13 @@ variable "project_name" {
   default     = "WAF project"
 }
 
+variable "region" {
+  description = "Region where components will be deployed"
+  type        = string
+  default     = "eu-central-1"
+}
+
+
 variable "account_id" {
   description = "AWS account ID where the WAF is created"
   type        = string
