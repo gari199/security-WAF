@@ -10,31 +10,30 @@ variable "region" {
   default     = "eu-central-1"
 }
 
-
-variable "account_id" {
-  description = "AWS account ID where the WAF is created"
-  type        = string
-  default     = "637423344778"
-}
-
 variable "security_group_id" {
   description = "ID of existing SG"
-  type = string
-  default ="sg-0c226fddab0a2860c"
+  type        = string
+  default     = "sg-0c226fddab0a2860c"
+}
+
+variable "bucket_name" {
+  description = "Name of the Bucket for logging"
+  type        = string
+  default     = "aws-waf-logs-acme-demo-waf-security"
 }
 
 variable "subnet_id_1" {
   description = "Subnet ID 1"
-  type = string
+  type        = string
 }
 
 variable "subnet_id_2" {
   description = "Subnet ID 1"
-  type = string
+  type        = string
 }
 
 variable "subnet_id_3" {
   description = "Subnet ID 1"
-  type = string
+  type        = string
 }
 

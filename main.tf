@@ -8,7 +8,7 @@ resource "aws_lb" "waf-alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [data.aws_security_group.waf-alb-sg.id]
-  subnets            = [var.subnet_id_1,var.subnet_id_2,var.subnet_id_3]
+  subnets            = [var.subnet_id_1, var.subnet_id_2, var.subnet_id_3]
 
   enable_deletion_protection = true
 
@@ -107,7 +107,7 @@ resource "aws_wafv2_web_acl" "security-waf" {
     }
   }
 
-  rule {      #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html
+  rule { #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html
     name     = "AWSManagedRulesAnonymousIpList"
     priority = 5
     override_action {
@@ -115,7 +115,7 @@ resource "aws_wafv2_web_acl" "security-waf" {
     }
     statement {
       managed_rule_group_statement {
-        name     = "AWSManagedRulesAnonymousIpList"
+        name        = "AWSManagedRulesAnonymousIpList"
         vendor_name = "AWS"
       }
     }
@@ -127,8 +127,8 @@ resource "aws_wafv2_web_acl" "security-waf" {
 
   }
 
-  rule {       #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html
-    name     = "AWSManagedRulesCommonRuleSet" 
+  rule { #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html
+    name     = "AWSManagedRulesCommonRuleSet"
     priority = 6
     override_action {
       none {}
@@ -138,7 +138,7 @@ resource "aws_wafv2_web_acl" "security-waf" {
         # to set a rule to only count instead of block
         # add an 'excluded_rule' block like this:
         #excluded_rule {
-          #name = "SizeRestrictions_QUERYSTRING"
+        #name = "SizeRestrictions_QUERYSTRING"
         #}
         #
         # active blocking rules are:
@@ -173,7 +173,7 @@ resource "aws_wafv2_web_acl" "security-waf" {
       sampled_requests_enabled   = true
     }
   }
-  rule {        #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-ip-rep.html
+  rule { #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-ip-rep.html
     name     = "AWSManagedRulesAmazonIpReputationList"
     priority = 7
     override_action {
@@ -192,7 +192,7 @@ resource "aws_wafv2_web_acl" "security-waf" {
     }
   }
 
-  rule {      #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html
+  rule { #https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html
     name     = "AWSManagedRulesKnownBadInputsRuleSet"
     priority = 8
     override_action {
@@ -200,7 +200,7 @@ resource "aws_wafv2_web_acl" "security-waf" {
     }
     statement {
       managed_rule_group_statement {
-        name     = "AWSManagedRulesKnownBadInputsRuleSet"
+        name        = "AWSManagedRulesKnownBadInputsRuleSet"
         vendor_name = "AWS"
       }
     }
@@ -218,8 +218,8 @@ resource "aws_wafv2_web_acl" "security-waf" {
     sampled_requests_enabled   = true
   }
   tags = {
-      "Name"        = "security-waf"
-    }
+    "Name" = "security-waf"
+  }
 }
 
 resource "aws_wafv2_web_acl_logging_configuration" "waf_acl_logging" {
@@ -228,7 +228,7 @@ resource "aws_wafv2_web_acl_logging_configuration" "waf_acl_logging" {
   logging_filter {
     default_behavior = "DROP"
     filter {
-      behavior    = "KEEP"
+      behavior = "KEEP"
       condition {
         action_condition {
           action = "COUNT"
