@@ -18,6 +18,6 @@ variable "account_id" {
 
 variable "security_group_id" {
   description = "ID of existing SG"
-  type = "string"
+  type = string
   default ="sg-0c226fddab0a2860c"
 }
