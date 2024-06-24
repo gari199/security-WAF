@@ -5,7 +5,7 @@ variable "project_name" {
 }
 
 variable "account_id" {
-  description = "AWS account ID where the WAF is created."
+  description = "AWS account ID where the WAF is created"
   type        = string
   default     = "637423344778"
 }
@@ -17,17 +17,17 @@ variable "security_group_id" {
 }
 
 variable "subnet_id_1" {
-  description = "SUbnet ID 1"
+  description = "Subnet ID 1"
   type = string
 }
 
 variable "subnet_id_2" {
-  description = "SUbnet ID 1"
+  description = "Subnet ID 1"
   type = string
 }
 
 variable "subnet_id_3" {
-  description = "SUbnet ID 1"
+  description = "Subnet ID 1"
   type = string
 }
 

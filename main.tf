@@ -1,10 +1,12 @@
+provider "aws" {}
+
 #Creation of ALB
 resource "aws_lb" "waf-alb" {
   name               = "waf-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [data.aws_security_group.waf-alb-sg.id]
-  subnets            = [data.aws_availability_zones.available_zones.names[0],data.aws_availability_zones.available_zones.names[1],data.aws_availability_zones.available_zones.names[2]]
+  subnets            = [var.subnet_id_1,var.subnet_id_2,subnet_id_3]
 
   enable_deletion_protection = true
 
