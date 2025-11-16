@@ -9,7 +9,7 @@ resource "aws_lb" "waf-alb" {
   load_balancer_type         = "application"
   security_groups            = [data.aws_security_group.waf-alb-sg.id]
   subnets                    = [var.subnet_id_1, var.subnet_id_2, var.subnet_id_3]
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
   tags = {
     Environment = "production"
