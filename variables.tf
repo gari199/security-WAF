@@ -25,15 +25,18 @@ variable "bucket_name" {
 variable "subnet_id_1" {
   description = "Subnet ID 1"
   type        = string
+  default     = "subnet-085118d21e9bf03ea"
 }
 
 variable "subnet_id_2" {
   description = "Subnet ID 1"
   type        = string
+  default     = "subnet-05488fa8f207c3ae6"
 }
 
 variable "subnet_id_3" {
   description = "Subnet ID 1"
   type        = string
+  default     = "subnet-0d9429085e40b7c7f"
 }
 
