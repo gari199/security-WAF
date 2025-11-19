@@ -6,5 +6,6 @@ resource "aws_wafv2_ip_set" "whitelisted_ips" {
   addresses = [
     "92.192.192.192/32",
     "92.192.192.192/32",
+    "0.192.192.192/32",
   ]
 }
