@@ -217,7 +217,7 @@ resource "aws_wafv2_web_acl" "security-waf" {
 
 resource "aws_wafv2_web_acl_logging_configuration" "waf_acl_logging" {
   resource_arn            = aws_wafv2_web_acl.security-waf.arn
-  log_destination_configs = [aws_s3_bucket.acme-demo-waf-security.arn]
+  log_destination_configs = [aws_s3_bucket.nimbusmart-demo-waf-security.arn]
   logging_filter {
     default_behavior = "DROP"
     filter {
